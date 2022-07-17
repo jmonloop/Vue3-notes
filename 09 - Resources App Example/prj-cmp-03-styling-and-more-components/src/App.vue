@@ -1,13 +1,16 @@
 <template>
+  <HeaderComp></HeaderComp>
   <stored-resources :resources="storedResources"></stored-resources>
 </template>
 
 <script>
 import StoredResources from './components/learning-resources/StoredResources.vue';
+import HeaderComp from './components/layout/Header.vue';
 
 export default {
   components: {
     StoredResources,
+    HeaderComp,
   },
   data() {
     return {

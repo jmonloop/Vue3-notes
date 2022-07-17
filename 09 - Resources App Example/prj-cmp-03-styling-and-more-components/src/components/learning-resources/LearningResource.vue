@@ -1,22 +1,30 @@
 <template>
   <li>
-    <div>
-      <header>
-        <h3>{{ title }}</h3>
-        <button>Delete</button>
-      </header>
-    </div>
-    <p>{{ description }}</p>
-    <nav>
-      <a :href="link">View Resource</a>
-    </nav>
+    <BaseCard>
+      <template v-slot:default>
+        <div>
+          <header>
+            <h3>{{ title }}</h3>
+            <button>Delete</button>
+          </header>
+        </div>
+        <p>{{ description }}</p>
+        <nav>
+          <a :href="link">View Resource</a>
+        </nav>
+      </template>
+    </BaseCard>
   </li>
 </template>
 
 <script>
+import BaseCard from '../base/BaseCard.vue';
 export default {
-  props: ['title', 'description', 'link']
-}
+  props: ['title', 'description', 'link'],
+  components: {
+    BaseCard,
+  },
+};
 </script>
 
 <style scoped>
