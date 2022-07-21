@@ -13,18 +13,18 @@
       </div>
     </div>
     <div class="product__actions">
-      <button @click="addToCart">Add to Cart</button>
+      <button @click="addProductToCart">Add to Cart</button>
     </div>
   </li>
 </template>
 
 <script>
 export default {
-  inject: ['addProductToCart'],
+  // inject: ['addProductToCart'],
   props: ['id', 'image', 'title', 'price', 'description'],
   methods: {
-    addToCart() {
-      this.addProductToCart({
+    addProductToCart() {
+      this.$store.dispatch('addProductToCart', {
         id: this.id,
         image: this.image,
         title: this.title,

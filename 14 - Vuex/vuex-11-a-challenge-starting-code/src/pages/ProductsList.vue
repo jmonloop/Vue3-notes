@@ -18,18 +18,23 @@
 import ProductItem from '../components/products/ProductItem.vue';
 
 export default {
-  inject: ['products'],
+  // inject: ['products'],
   components: {
     ProductItem,
   },
+  computed: {
+    products(){
+      return this.$store.getters.products
+    }
+  }
 };
 </script>
 
 <style scoped>
-  ul {
-    list-style: none;
-    margin: 2rem auto;
-    padding: 0;
-    max-width: 40rem;
-  }
+ul {
+  list-style: none;
+  margin: 2rem auto;
+  padding: 0;
+  max-width: 40rem;
+}
 </style>
