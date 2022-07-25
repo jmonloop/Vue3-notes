@@ -19,7 +19,7 @@
   </section>
 </template>
 
-<script>
+<!-- <script>
 export default {
   data() {
     return {
@@ -44,6 +44,39 @@ export default {
         alert('You are broke!');
       }
     },
+  },
+};
+</script> -->
+
+<script>
+import { ref, computed, watch } from 'vue';
+export default {
+  setup() {
+    const availableFunds = ref(100);
+    const currentExpenses = ref(0);
+    const enteredExpense = ref(0)
+
+    const remainingFunds = computed(() => {
+      return availableFunds.value - currentExpenses.value;
+    });
+
+    const addExpense = () => {
+      currentExpenses.value += enteredExpense.value;
+    };
+
+    watch(remainingFunds, (newValues) => {
+      if (newValues < 0) {
+        alert('You are broke!');
+      }
+    });
+
+    return {
+      availableFunds,
+      currentExpenses,
+      remainingFunds,
+      addExpense,
+      enteredExpense
+    };
   },
 };
 </script>
